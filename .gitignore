@@ -43,6 +43,16 @@ Thumbs.db
 !/results/demo/**
 !/results/paper/
 !/results/paper/**
+!/results/multiseed/
+!/results/multiseed/**
+!/results/sensitivity/
+!/results/sensitivity/**
+/results/seeds/
+
+# Teamwork agent state and scratch files
+.agents/
+ORIGINAL_REQUEST.md
+
 
 # Transfer bundles, local integrity experiments, and temporary work
 /dist/

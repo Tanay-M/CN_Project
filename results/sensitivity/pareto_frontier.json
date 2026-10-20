@@ -1,0 +1,74 @@
+[
+  {
+    "alpha": 0.7,
+    "tau": 0.0,
+    "observation_delay_bins": 1,
+    "scenario": "congested",
+    "forwarding_score": 515.4479094275742,
+    "route_changes": 20.0,
+    "overload_minutes": 75.0,
+    "served_fraction": 0.9936188817639723,
+    "excess_mbit": 16299.803602695465,
+    "run_id": "sens_w0_2022_congested_lag1_a70_t0"
+  },
+  {
+    "alpha": 0.8,
+    "tau": 0.0,
+    "observation_delay_bins": 1,
+    "scenario": "congested",
+    "forwarding_score": 516.4284549165334,
+    "route_changes": 20.0,
+    "overload_minutes": 60.0,
+    "served_fraction": 0.9944119614034473,
+    "excess_mbit": 15219.774055480957,
+    "run_id": "sens_w0_2022_congested_lag1_a80_t0"
+  },
+  {
+    "alpha": 0.7,
+    "tau": 0.2,
+    "observation_delay_bins": 1,
+    "scenario": "congested",
+    "forwarding_score": 521.2592688511419,
+    "route_changes": 13.0,
+    "overload_minutes": 75.0,
+    "served_fraction": 0.9936188817639723,
+    "excess_mbit": 16299.803602695465,
+    "run_id": "sens_w0_2022_congested_lag1_a70_t20"
+  },
+  {
+    "alpha": 0.8,
+    "tau": 0.2,
+    "observation_delay_bins": 1,
+    "scenario": "congested",
+    "forwarding_score": 523.5785146493125,
+    "route_changes": 13.0,
+    "overload_minutes": 60.0,
+    "served_fraction": 0.9944119614034473,
+    "excess_mbit": 15219.774055480957,
+    "run_id": "sens_w0_2022_congested_lag1_a80_t20"
+  },
+  {
+    "alpha": 0.95,
+    "tau": 0.15,
+    "observation_delay_bins": 1,
+    "scenario": "congested",
+    "forwarding_score": 539.7308721261317,
+    "route_changes": 10.0,
+    "overload_minutes": 60.0,
+    "served_fraction": 0.9944119614034473,
+    "excess_mbit": 15219.774055480957,
+    "run_id": "sens_w0_2022_congested_lag1_a95_t15"
+  },
+  {
+    "alpha": 0.99,
+    "tau": 0.2,
+    "observation_delay_bins": 1,
+    "scenario": "congested",
+    "forwarding_score": 543.7915130332573,
+    "route_changes": 6.0,
+    "overload_minutes": 60.0,
+    "served_fraction": 0.9944119614034473,
+    "excess_mbit": 15219.774055480957,
+    "run_id": "sens_w0_2022_congested_lag1_a99_t20"
+  }
+]

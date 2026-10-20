@@ -29,6 +29,7 @@ ECON daily CSV -> country/date pairing -> experiments.campaign
 | `Predictor.predict(history)` | Exactly 12 observed `[8,8]` matrices | Nonnegative `[3,8,8]` Mbps; inactive pairs zero |
 | `Predictor.margin` | Validation residual calibration | `[3,8,8]` additive Mbps; inactive pairs zero |
 | `Planner.decide(forecast, current_carbon, step)` | Conservative forecast, eight current CI values | Immutable `Decision`: ordered routes, changes, infeasibility, reasons |
+| `BudgetPlanner.decide(forecast, current_carbon, step)` | Conservative forecast, eight current CI values, reactive reference | Immutable `Decision`: joint 64-state combinatorial selection, min-peak utilization, carbon budget compliant |
 | `progressive_fill(demand, incidence, capacities)` | Flow Mbps, link-by-flow binary matrix, directed capacities | Offered-bounded, capacity-feasible served Mbps |
 | `replay(...)` | Frozen scenario and predictor | `ReplayResult` containing per-bin records and aggregate metrics |
 | `report(root, result_dir)` | Completed campaign with checked frozen evidence, including each run and carbon date mapping | Standalone offline HTML, findings, PNG/PDF figures |

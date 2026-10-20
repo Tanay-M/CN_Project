@@ -1,6 +1,6 @@
 # Project hand-off — GÉANT carbon-aware routing
 
-**Status (18 October 2026):** The agreed Windows-friendly, trace-driven research simulation is implemented, reviewed, and reproducible locally. A saved offline demo and a 495-run reference campaign are included in this repository. Mininet/OpenFlow deployment and a test on the team's presentation laptop have **not** been completed. Start with [README.md](../README.md) for commands, [IMPLEMENTATION_PLAN.md](../IMPLEMENTATION_PLAN.md) for the accepted scope, and [CODING_STANDARDS.md](../CODING_STANDARDS.md) before editing.
+**Status (19 October 2026):** The agreed Windows-friendly, trace-driven research simulation is implemented and reproducible locally. A saved offline demo and a 495-run reference campaign are included in this repository. A joint carbon-budgeted route selector has also been implemented and evaluated on seven development validation days; see [JOINT_SELECTOR.md](JOINT_SELECTOR.md). Mininet/OpenFlow deployment and a test on the team's presentation laptop have **not** been completed. Start with [README.md](../README.md) for commands, [IMPLEMENTATION_PLAN.md](../IMPLEMENTATION_PLAN.md) for the accepted scope, and [CODING_STANDARDS.md](../CODING_STANDARDS.md) before editing.
 
 ## What this project does
 
@@ -19,6 +19,8 @@ Traffic is from 2005 and carbon from 2022–2024. Their calendar/weekday matchin
 | Campaign and presentation | `src/carbonroute/experiments.py`, `reporting.py`, `report.html`, `results/demo/`, `results/paper/` | Paired policy cases, integrity-checked logs, self-contained HTML, CSV and figures |
 | Independent audit | `scripts/verify_results.py`, `tests/` | Recalculates run invariants and tests causality, routing, service, data and forecasting |
 | Research writing | `docs/PAPER_DRAFT.md`, `results/paper/FINDINGS.md`, `docs/REVIEW.md`, `docs/DEMO_GUIDE.md` | Manuscript draft, generated findings, completed code review and presentation script |
+
+`routing.py` now also contains `BudgetPlanner`, which enumerates the 64 joint route assignments and keeps a separate reactive reference state. `experiments.py` accepts validation/test splits and `--joint`; `simulation.py` logs the predicted budget and its compliance per bin. The complete development experiment, commands and limitations are in [JOINT_SELECTOR.md](JOINT_SELECTOR.md). A [standalone validation viewer](reports/joint-validation.html) and [exploratory test viewer](reports/joint-test-exploratory.html) are committed for offline presentation. Local full logs under `results/joint-*` are ignored by Git and can be regenerated from the saved checkpoints and verified input download. Neither the reference campaign nor the neural checkpoints were modified.
 
 The detailed module inputs/outputs and replay sequence are in [ARCHITECTURE.md](ARCHITECTURE.md). Its crucial invariant is that prediction sees only historical OD matrices, routing commits before target demand is revealed, and every policy receives the same workload, graph, route candidates and allocator. The source topology's static demand section is not used as training time series. Do not fit pair selection, scaling or margins on the test split. Rates are decimal Mbps; a bin is 900 seconds; carbon intensities are numerically g CO₂/kWh. The reported forwarding score sums sender-country intensity across hops, weighted by **served** bytes; it is neither grams emitted nor a measured energy figure.
 
@@ -47,7 +49,7 @@ The last command audits the *frozen reference* and is meaningful only while its 
 
 1. On the teammate's Windows presentation laptop, clone, open `DEMO.html`, run setup and `RUN_DEMO.ps1 -Rebuild`, then record environment and timing. The current transfer test was only on a second local folder.
 2. For a stronger paper, repeat with predeclared extra held-out periods and training seeds, retain negative results, and report paired uncertainty. The existing five adjacent test days and one seed limit generalization. Do not choose periods after seeing policy outcomes and then call them unseen tests.
-3. Improve the research claim through a defensible joint congestion/carbon analysis and related-work comparison; start with the dated [Review 1 research note](REVIEW1_RESEARCH.md). Avoid a generic “first predictive carbon routing” claim. The manuscript is a draft, not a submitted paper.
+3. Freeze the new [joint selector](JOINT_SELECTOR.md) and evaluate it on a predeclared later, untouched traffic period before making a paper claim. The currently inspected validation and original test periods cannot provide a fresh independent confirmation. Avoid a generic “first predictive carbon routing” claim. The manuscript is a draft, not a submitted paper.
 4. Add Mininet/OpenFlow only as a separately labeled extension if a faculty requirement makes packet-level demonstration necessary. No current result should be relabeled as Mininet output.
 
 ## Suggested skills for a coding agent

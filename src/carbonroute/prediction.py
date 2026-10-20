@@ -64,7 +64,31 @@ class Persistence:
 
 
 class TrainedPredictor:
-    def __init__(self, folder: Path, prepared: Prepared, cfg: dict[str, Any], kind: str = "gnn"):
+    def __init__(
+        self,
+        folder: Path | None = None,
+        prepared: Prepared | None = None,
+        cfg: dict[str, Any] | None = None,
+        kind: str = "gnn",
+        seed: int | None = None,
+        output_dir: Path | None = None,
+    ):
+        if output_dir is not None:
+            folder = Path(output_dir)
+        elif folder is None:
+            folder = Path("artifacts/seeds") / f"seed_{seed}" if seed is not None else Path("artifacts")
+        else:
+            folder = Path(folder)
+
+        if prepared is None:
+            raise ValueError("TrainedPredictor requires prepared dataset for checksum and graph verification")
+        if cfg is None:
+            raise ValueError("TrainedPredictor requires configuration dict")
+
+        cfg = copy.deepcopy(cfg)
+        if seed is not None:
+            cfg["seed"] = seed
+
         meta = load_json(folder / f"{kind}.json")
         if meta["config_hash"] != fingerprint(cfg) or meta["traffic_sha256"] != prepared.manifest["traffic_sha256"]:
             raise ValueError("Checkpoint configuration or training data mismatch; retrain")
@@ -74,7 +98,8 @@ class TrainedPredictor:
             raise ValueError("Checkpoint checksum mismatch")
         torch.set_num_threads(cfg["cpu_threads"])
         adjacency = prepared.network.adjacency() if kind == "gnn" else np.eye(8, dtype=np.float32)
-        self.model = DemandNet(adjacency, prepared.mask, cfg["hidden_size"], cfg["horizon"])
+        mask = prepared.mask
+        self.model = DemandNet(adjacency, mask, cfg["hidden_size"], cfg["horizon"])
         self.model.load_state_dict(torch.load(folder / f"{kind}.pt", map_location="cpu", weights_only=True))
         self.model.eval()
         self.scale = prepared.scale
@@ -130,10 +155,24 @@ def forecast_metrics(actual: np.ndarray, predicted: np.ndarray, margin: np.ndarr
     return rows
 
 
-def train(root: Path, cfg: dict[str, Any]) -> dict[str, Any]:
-    data = load_prepared(root, cfg)
-    folder = root / "artifacts"
-    folder.mkdir(exist_ok=True)
+def train(
+    root: Path,
+    cfg: dict[str, Any],
+    seed: int | None = None,
+    output_dir: Path | None = None,
+) -> dict[str, Any]:
+    cfg = copy.deepcopy(cfg)
+    if seed is not None:
+        cfg["seed"] = seed
+    prep_manifest_path = root / "inputs/processed/manifest.json"
+    if prep_manifest_path.exists():
+        prep_seed = load_json(prep_manifest_path).get("config", {}).get("seed", cfg["seed"])
+        prep_cfg = dict(cfg, seed=prep_seed)
+    else:
+        prep_cfg = cfg
+    data = load_prepared(root, prep_cfg)
+    folder = Path(output_dir) if output_dir is not None else (root / "artifacts")
+    folder.mkdir(parents=True, exist_ok=True)
     torch.set_num_threads(cfg["cpu_threads"])
     torch.use_deterministic_algorithms(True)
     xtrain, ytrain, _ = make_windows(data, cfg, "train")

@@ -48,6 +48,10 @@ def main(argv: list[str] | None = None) -> int:
             child.add_argument("--overwrite", action="store_true")
         if command == "run":
             child.add_argument("--paper", action="store_true")
+            child.add_argument("--joint", action="store_true", help="Include the joint carbon-budgeted selectors")
+            child.add_argument("--split", choices=("validation", "test"), default="test")
+            child.add_argument("--carbon-budget-fraction", type=float, default=0.0,
+                               help="Allowed predicted carbon cost above the reactive assignment")
         if command in ("report", "demo"):
             child.add_argument("--open", action="store_true", help="Open the local HTML report in your browser")
     args = parser.parse_args(argv)
@@ -69,7 +73,9 @@ def main(argv: list[str] | None = None) -> int:
             from .prediction import train
             train(root, cfg)
         else:
-            output = (args.output or root / "results" / ("paper" if getattr(args, "paper", False) else "demo")).resolve()
+            name = (f"joint-{args.split}" if args.command == "run" and args.joint else
+                    "paper" if getattr(args, "paper", False) else "demo")
+            output = (args.output or root / "results" / name).resolve()
             if args.command in ("run", "demo"):
                 from .experiments import campaign
                 if args.command == "demo":
@@ -79,7 +85,9 @@ def main(argv: list[str] | None = None) -> int:
                     if not (root / "artifacts/gnn.pt").exists():
                         from .prediction import train
                         train(root, cfg)
-                campaign(root, cfg, output, getattr(args, "paper", False), args.overwrite)
+                campaign(root, cfg, output, getattr(args, "paper", False), args.overwrite,
+                         getattr(args, "split", "test"), getattr(args, "joint", False),
+                         getattr(args, "carbon_budget_fraction", 0.0))
             from .reporting import report
             path = report(root, output)
             if getattr(args, "open", False):

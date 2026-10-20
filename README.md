@@ -1,6 +1,6 @@
 # GÉANT predictive carbon-aware routing
 
-A working, free, native Windows research simulation with real historical inputs, a trained GCN–GRU, seven routing policies, and an offline replay viewer.
+A working, free, native Windows research simulation with real historical inputs, a trained GCN–GRU, seven reference policies, three experimental joint selectors, and an offline replay viewer.
 
 **Start here: double-click `DEMO.html`.** The saved demo works without Python or internet. `results/paper/index.html` shows the larger comparison. This is aggregate trace-driven simulation; Mininet and OpenFlow actuation are not part of the completed build.
 
@@ -13,8 +13,11 @@ For a new teammate or coding agent, read [docs/HANDOFF.md](docs/HANDOFF.md) for 
 - 3,972 matrices from the first 42 calendar days; six training-selected directed demands, chronological splits, gap-safe windows, training-only scaling.
 - A 7,672-parameter GCN–GRU and a matched GRU, trained on CPU; persistence comparison and validation-calibrated forecast margins.
 - Causal routing, shared reservations, propagation guards, hysteresis, deterministic max-min service, and explicit carbon attribution.
+- **Multi-Seed Robustness Campaign:** 5 random seeds ($S=42..46$), 2,475 simulation runs, with paired Student's t-tests and Wilcoxon signed-rank tests (`scripts/run_multiseed.py`).
+- **Parameter Sensitivity & Pareto Frontier:** 196-run sweep across safety quantiles $\alpha \in [0.70, 0.99]$ and hysteresis $\tau \in [0.00, 0.20]$, extracting 6 non-dominated Pareto configurations (`scripts/run_sensitivity.py`).
+- **Joint Carbon-Budgeted Routing:** 64-state combinatorial routing selector subject to contemporaneous reactive reference carbon budgets (`docs/JOINT_SELECTOR.md`).
 - Four main policies and three component comparisons. Five test days × three carbon years × three workloads × (seven delayed policies + four immediate policies) = **495 runs**.
-- Self-contained HTML replay, CSV/JSON results, PNG/PDF figures, source/config/model hashes, tests, a paper draft, and a portable source/demo bundle command.
+- Self-contained HTML replay, CSV/JSON results, 4 publication-quality PNG/PDF figures, source/config/model hashes, 56 pytest tests, and an upgraded formal paper draft (`docs/PAPER_DRAFT.md`).
 
 ## Run on this laptop
 
@@ -74,6 +77,9 @@ The exact lock was tested on Windows x64 / Python 3.12. Other operating systems 
 | `python -m carbonroute train` | Trains GNN and GRU; saves checkpoints, validation margins and forecast metrics in `artifacts/` |
 | `python -m carbonroute demo --overwrite` | Runs 14 paired pilot cases and generates `results/demo/index.html` |
 | `python -m carbonroute run --paper --output results/new-run` | Runs 495 cases and generates the full report |
+| `python -m carbonroute run --joint --split validation --paper --output results/joint-new` | Runs the 630-case carbon-budgeted development experiment using saved checkpoints |
+| `python scripts/run_multiseed.py` | Runs 5-seed training & simulation campaign (2,475 runs) and computes t-test/Wilcoxon tests |
+| `python scripts/run_sensitivity.py` | Runs 196-run parameter sensitivity grid sweep across alpha & tau, generates Pareto frontier & figures |
 | `python -m carbonroute report --output results/new-run` | Rebuilds presentation from that campaign's frozen evidence |
 | `python -m carbonroute bundle` | Writes a source + checkpoint + pilot ZIP under `dist/` |
 | `python scripts/verify_results.py results/paper` | Independently audits saved routing, capacity, timing and carbon accounting |
@@ -93,7 +99,7 @@ The first full run produced **mixed evidence**, not a blanket GNN win:
 
 These numbers are provisional, from one training seed and five adjacent test days. The carbon score is **not grams saved** and is not a physical electricity measurement. Before writing a strong paper claim, expand held-out periods/seeds and examine the paired differences and sensitivity results. Do not tune on these test days and then call them unseen evaluation.
 
-For the 20 October Review 1 explanation and a source-backed, validation-first improvement program, see [docs/REVIEW1_RESEARCH.md](docs/REVIEW1_RESEARCH.md). Its proposed changes are research hypotheses, not results of this campaign.
+For the 20 October Review 1 explanation and source-backed improvement program, see [docs/REVIEW1_RESEARCH.md](docs/REVIEW1_RESEARCH.md). Its first proposed experiment, the joint carbon-budgeted selector, is now implemented; [docs/JOINT_SELECTOR.md](docs/JOINT_SELECTOR.md) gives the decision rule, validation results, honest limits, and commands. The [offline joint validation viewer](docs/reports/joint-validation.html) opens directly from a clone, while full audit logs are generated locally. The frozen `results/paper/` reference above is unchanged.
 
 ## Team ownership
 

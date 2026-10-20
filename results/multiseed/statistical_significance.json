@@ -1,0 +1,464 @@
+{
+  "vs_reactive": {
+    "overload_minutes": {
+      "mean_diff": -12.0,
+      "std_diff": 12.549900398011133,
+      "t_statistic": -2.138089935299395,
+      "p_value_ttest": 0.09930068321372677,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.25,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "forwarding_score": {
+      "mean_diff": 10.925700844790004,
+      "std_diff": 7.914762871434597,
+      "t_statistic": 3.0867140541822873,
+      "p_value_ttest": 0.03669127586002008,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "served_fraction": {
+      "mean_diff": 0.0003108552852576496,
+      "std_diff": 0.0003770985516213183,
+      "t_statistic": 1.8432676180077308,
+      "p_value_ttest": 0.13907048606872635,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.25,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "route_changes": {
+      "mean_diff": -0.72,
+      "std_diff": 0.9959919678390979,
+      "t_statistic": -1.616447718240975,
+      "p_value_ttest": 0.1813034142759525,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.25,
+      "n_pairs": 75,
+      "n_days": 5
+    }
+  },
+  "vs_persistence": {
+    "overload_minutes": {
+      "mean_diff": 0.0,
+      "std_diff": 0.0,
+      "t_statistic": 0.0,
+      "p_value_ttest": 1.0,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 1.0,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "forwarding_score": {
+      "mean_diff": -3.8256328015399506,
+      "std_diff": 3.50814454508709,
+      "t_statistic": -2.4384328784787654,
+      "p_value_ttest": 0.07132886322872771,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "served_fraction": {
+      "mean_diff": -0.0006180247786292892,
+      "std_diff": 0.0013819454167943498,
+      "t_statistic": -1.0,
+      "p_value_ttest": 0.373900966300059,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 1.0,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "route_changes": {
+      "mean_diff": -4.32,
+      "std_diff": 2.9175332046096756,
+      "t_statistic": -3.310952433218815,
+      "p_value_ttest": 0.029628030883234215,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    }
+  },
+  "vs_reactive_bursty_lag0": {
+    "overload_minutes": {
+      "mean_diff": 0.0,
+      "std_diff": 0.0,
+      "t_statistic": 0.0,
+      "p_value_ttest": 1.0,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 1.0,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "forwarding_score": {
+      "mean_diff": 10.719624394989967,
+      "std_diff": 7.038168186169618,
+      "t_statistic": 3.4056885550937244,
+      "p_value_ttest": 0.027134816825709288,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "served_fraction": {
+      "mean_diff": 0.0,
+      "std_diff": 0.0,
+      "t_statistic": 0.0,
+      "p_value_ttest": 1.0,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 1.0,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "route_changes": {
+      "mean_diff": 2.8800000000000003,
+      "std_diff": 1.4532721699667976,
+      "t_statistic": 4.431293675255974,
+      "p_value_ttest": 0.011410571669867012,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    }
+  },
+  "vs_reactive_bursty_lag1": {
+    "overload_minutes": {
+      "mean_diff": -7.2,
+      "std_diff": 8.899438184514795,
+      "t_statistic": -1.809068067466582,
+      "p_value_ttest": 0.14470399860633032,
+      "wilcoxon_stat": 2.0,
+      "p_value_wilcoxon": 0.25,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "forwarding_score": {
+      "mean_diff": 11.429467503185288,
+      "std_diff": 7.220865858445822,
+      "t_statistic": 3.5393354183216825,
+      "p_value_ttest": 0.024027777568803324,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "served_fraction": {
+      "mean_diff": 0.0019448445609443477,
+      "std_diff": 0.0017673371708516186,
+      "t_statistic": 2.4606536407802455,
+      "p_value_ttest": 0.06964248096637309,
+      "wilcoxon_stat": 1.0,
+      "p_value_wilcoxon": 0.125,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "route_changes": {
+      "mean_diff": 2.4800000000000004,
+      "std_diff": 1.3084341787036902,
+      "t_statistic": 4.238232747552912,
+      "p_value_ttest": 0.013282299215433968,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    }
+  },
+  "vs_persistence_bursty_lag1": {
+    "overload_minutes": {
+      "mean_diff": 5.4,
+      "std_diff": 7.162401831787992,
+      "t_statistic": 1.6858544608470494,
+      "p_value_ttest": 0.16710331573259793,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.125,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "forwarding_score": {
+      "mean_diff": -2.198004166161502,
+      "std_diff": 1.4038042391859298,
+      "t_statistic": -3.5011197381872976,
+      "p_value_ttest": 0.024870932573911275,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "served_fraction": {
+      "mean_diff": -0.000620027352388286,
+      "std_diff": 0.001119223995414179,
+      "t_statistic": -1.2387362257510979,
+      "p_value_ttest": 0.2831675718208544,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.125,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "route_changes": {
+      "mean_diff": -3.599999999999999,
+      "std_diff": 1.7204650534085262,
+      "t_statistic": -4.678877204190324,
+      "p_value_ttest": 0.009455608993047083,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    }
+  },
+  "vs_reactive_congested_lag0": {
+    "overload_minutes": {
+      "mean_diff": 0.0,
+      "std_diff": 0.0,
+      "t_statistic": 0.0,
+      "p_value_ttest": 1.0,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 1.0,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "forwarding_score": {
+      "mean_diff": 10.617097781370523,
+      "std_diff": 6.020921912808867,
+      "t_statistic": 3.943009510287985,
+      "p_value_ttest": 0.01691697002500975,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "served_fraction": {
+      "mean_diff": 0.0,
+      "std_diff": 0.0,
+      "t_statistic": 0.0,
+      "p_value_ttest": 1.0,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 1.0,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "route_changes": {
+      "mean_diff": -0.07999999999999971,
+      "std_diff": 1.3971399357258392,
+      "t_statistic": -0.12803687993289545,
+      "p_value_ttest": 0.9042988982224585,
+      "wilcoxon_stat": 4.5,
+      "p_value_wilcoxon": 1.0,
+      "n_pairs": 75,
+      "n_days": 5
+    }
+  },
+  "vs_reactive_congested_lag1": {
+    "overload_minutes": {
+      "mean_diff": -12.0,
+      "std_diff": 12.549900398011133,
+      "t_statistic": -2.138089935299395,
+      "p_value_ttest": 0.09930068321372677,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.25,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "forwarding_score": {
+      "mean_diff": 10.925700844790004,
+      "std_diff": 7.914762871434597,
+      "t_statistic": 3.0867140541822873,
+      "p_value_ttest": 0.03669127586002008,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "served_fraction": {
+      "mean_diff": 0.0003108552852576496,
+      "std_diff": 0.0003770985516213183,
+      "t_statistic": 1.8432676180077308,
+      "p_value_ttest": 0.13907048606872635,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.25,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "route_changes": {
+      "mean_diff": -0.72,
+      "std_diff": 0.9959919678390979,
+      "t_statistic": -1.616447718240975,
+      "p_value_ttest": 0.1813034142759525,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.25,
+      "n_pairs": 75,
+      "n_days": 5
+    }
+  },
+  "vs_persistence_congested_lag1": {
+    "overload_minutes": {
+      "mean_diff": 0.0,
+      "std_diff": 0.0,
+      "t_statistic": 0.0,
+      "p_value_ttest": 1.0,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 1.0,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "forwarding_score": {
+      "mean_diff": -3.8256328015399506,
+      "std_diff": 3.50814454508709,
+      "t_statistic": -2.4384328784787654,
+      "p_value_ttest": 0.07132886322872771,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "served_fraction": {
+      "mean_diff": -0.0006180247786292892,
+      "std_diff": 0.0013819454167943498,
+      "t_statistic": -1.0,
+      "p_value_ttest": 0.373900966300059,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 1.0,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "route_changes": {
+      "mean_diff": -4.32,
+      "std_diff": 2.9175332046096756,
+      "t_statistic": -3.310952433218815,
+      "p_value_ttest": 0.029628030883234215,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    }
+  },
+  "vs_reactive_normal_lag0": {
+    "overload_minutes": {
+      "mean_diff": 0.0,
+      "std_diff": 0.0,
+      "t_statistic": 0.0,
+      "p_value_ttest": 1.0,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 1.0,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "forwarding_score": {
+      "mean_diff": 4.358438862420212,
+      "std_diff": 2.9687763521902975,
+      "t_statistic": 3.2827550532589758,
+      "p_value_ttest": 0.030421842868024577,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "served_fraction": {
+      "mean_diff": 0.0,
+      "std_diff": 0.0,
+      "t_statistic": 0.0,
+      "p_value_ttest": 1.0,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 1.0,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "route_changes": {
+      "mean_diff": 3.7600000000000002,
+      "std_diff": 4.396362132490908,
+      "t_statistic": 1.9124028781122244,
+      "p_value_ttest": 0.12838995086858593,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.25,
+      "n_pairs": 75,
+      "n_days": 5
+    }
+  },
+  "vs_reactive_normal_lag1": {
+    "overload_minutes": {
+      "mean_diff": 0.0,
+      "std_diff": 0.0,
+      "t_statistic": 0.0,
+      "p_value_ttest": 1.0,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 1.0,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "forwarding_score": {
+      "mean_diff": 5.161680878194,
+      "std_diff": 3.397295805564304,
+      "t_statistic": 3.3973695498927703,
+      "p_value_ttest": 0.027343522814117005,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "served_fraction": {
+      "mean_diff": 0.00019250665263093047,
+      "std_diff": 0.00039477074753622375,
+      "t_statistic": 1.0903998436819355,
+      "p_value_ttest": 0.33682126253031625,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.5,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "route_changes": {
+      "mean_diff": 4.08,
+      "std_diff": 4.769905659444429,
+      "t_statistic": 1.9126494315742406,
+      "p_value_ttest": 0.12835348651691134,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.25,
+      "n_pairs": 75,
+      "n_days": 5
+    }
+  },
+  "vs_persistence_normal_lag1": {
+    "overload_minutes": {
+      "mean_diff": 0.0,
+      "std_diff": 0.0,
+      "t_statistic": 0.0,
+      "p_value_ttest": 1.0,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 1.0,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "forwarding_score": {
+      "mean_diff": -3.1548989924966917,
+      "std_diff": 1.5102942158827055,
+      "t_statistic": -4.670989622538609,
+      "p_value_ttest": 0.0095113012378425,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.0625,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "served_fraction": {
+      "mean_diff": -0.00012286494595505903,
+      "std_diff": 0.00026565131749176464,
+      "t_statistic": -1.0341916381267966,
+      "p_value_ttest": 0.3594714103556076,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.5,
+      "n_pairs": 75,
+      "n_days": 5
+    },
+    "route_changes": {
+      "mean_diff": -1.52,
+      "std_diff": 1.3682105101189654,
+      "t_statistic": -2.484137711750331,
+      "p_value_ttest": 0.06790936180227085,
+      "wilcoxon_stat": 0.0,
+      "p_value_wilcoxon": 0.125,
+      "n_pairs": 75,
+      "n_days": 5
+    }
+  }
+}
